@@ -1,23 +1,21 @@
 class Board {
-    chessBoard
-
-    constructor(chessBoard) {
-        this.chessBoard = new chessBoard[8][8]
+    constructor() {
+        if (new.target === Board) {
+            throw new Error("Cannot instantiate abstract class Board");
+        }
+        this.chessBoard = this.initBoard();
     }
 
-    Move() {
-
-    }
+    initBoard() {}
+    move() {}
 }
 
 class Player {
-    team
-
     constructor(team) {
+        if (new.target === Player) {
+            throw new Error("Cannot instantiate abstract class Player");
+        }
         this.team = team
     }
-
-    makeMove(Board) {
-
-    }
+    makeMove() {}
 }
